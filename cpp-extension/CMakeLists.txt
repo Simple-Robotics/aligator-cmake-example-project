@@ -1,0 +1,1 @@
+aligator_create_python_extension(example_extension WITH_SOABI module.cpp)
