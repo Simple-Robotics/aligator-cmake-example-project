@@ -9,6 +9,7 @@ int main()
   Eigen::VectorXd c{nx};
   aligator::dynamics::LinearDiscreteDynamicsTpl<double> dynamics{A, B, c};
 
+  auto data = dynamics.createData();
 
   return 0;
 }
