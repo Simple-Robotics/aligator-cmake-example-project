@@ -1,8 +1,7 @@
-#include <aligator/solvers/proxddp/solver-proxddp.hpp>
 #include <aligator/modelling/linear-discrete-dynamics.hpp>
+#include <aligator/solvers/proxddp/solver-proxddp.hpp>
 
-int main() 
-{
+int main() {
   constexpr Eigen::Index nx = 10;
   constexpr Eigen::Index nu = 4;
   Eigen::MatrixXd A{nx, nx}, B{nx, nu};

@@ -13,7 +13,7 @@ set(PROJECT_GENERATED_HEADERS_SKIP_DEPRECATED ON)
 set(PROJECT_GENERATED_HEADERS_SKIP_WARNING ON)
 
 include(cmake/base.cmake)
-compute_project_args(PROJECT_ARGS LANGUAGES CXX)
+COMPUTE_PROJECT_ARGS(PROJECT_ARGS LANGUAGES CXX)
 project(${PROJECT_NAME} ${PROJECT_ARGS})
 set(CMAKE_VERBOSE_MAKEFILE False)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib")
@@ -23,4 +23,3 @@ find_package(aligator REQUIRED)
 
 add_executable(main main.cpp)
 target_link_libraries(main PRIVATE aligator::aligator)
-
