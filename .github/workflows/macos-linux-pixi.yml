@@ -53,17 +53,14 @@ jobs:
         cache: true
         environments: ${{ matrix.environment }}
 
-    - name: Build aligator-cmake-example-project
+    - name: Build and test aligator-cmake-example-project
       shell: bash -l {0}
       env:
         CMAKE_BUILD_PARALLEL_LEVEL: 4
         ALCEP_BUILD_TYPE: ${{ matrix.build_type }}
       run: |
-        pixi run -e ${{ matrix.environment }} build
-        pixi shell -e ${{ matrix.environment }}
-        cd build && ./bin/main
-        # Tests
         pixi run -e ${{ matrix.environment }} test
+        cd build && ./bin/main
 
   check:
     name: check-macos-linux-pixi
