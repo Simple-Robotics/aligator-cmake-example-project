@@ -1,0 +1,31 @@
+[workspace]
+authors = ["ManifoldFR <wilson.jallet@polytechnique.org>"]
+channels = ["conda-forge"]
+name = "aligator-cmake-example-project"
+platforms = ["osx-64", "osx-arm64", "linux-64"]
+version = "0.1.0"
+
+[activation]
+scripts = ["development/pixi/activation.sh"]
+
+[tasks]
+configure = { cmd = [
+  "cmake",
+  "-G",
+  "Ninja",
+  "-B",
+  "build",
+  "-S",
+  ".",
+  "-DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX",
+  "-DCMAKE_BUILD_TYPE=$ALCEP_BUILD_TYPE",
+] }
+build = { cmd = "cmake --build build --target all", depends-on = ["configure"] }
+clean = { cmd = "rm -rf build" }
+test = { cmd = "ctest --test-dir build --output-on-failure", depends-on = [
+  "build",
+] }
+
+[dependencies]
+aligator = ">=0.14.0,<0.15"
+eigenpy = ">=3.10.3,<4"
