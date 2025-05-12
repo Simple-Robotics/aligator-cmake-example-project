@@ -1,4 +1,4 @@
-definitions: [./CMakeLists.txt, ./cmake]
+definitions: [./CMakeLists.txt, ./cpp-extension, ./cmake]
 line_length: 80
 indent: 2
 warn_about_unknown_commands: false
