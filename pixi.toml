@@ -29,3 +29,10 @@ test = { cmd = "ctest --test-dir build --output-on-failure", depends-on = [
 [dependencies]
 aligator = ">=0.14.0,<0.15"
 eigenpy = ">=3.10.3,<4"
+
+[build-dependencies]
+cmake = ">=4.0.2,<5"
+ccache = ">=4.11.3,<5"
+cxx-compiler = ">=1.9.0,<2"
+ninja = ">=1.12.1,<2"
+pkg-config = ">=0.29.2,<0.30"
