@@ -9,21 +9,13 @@ on:
       - main
     paths-ignore:
       - 'doc/**'
-      - 'scripts/**'
-      - '.gitlab-ci.yml'
       - '.gitignore'
       - '**.md'
-      - 'CITATION.cff'
-      - 'CITATIONS.bib'
   pull_request:
     paths-ignore:
       - 'doc/'
-      - 'scripts/'
-      - '.gitlab-ci.yml'
       - '.gitignore'
       - '**.md'
-      - 'CITATION.cff'
-      - 'CITATIONS.bib'
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -68,6 +60,10 @@ jobs:
         ALCEP_BUILD_TYPE: ${{ matrix.build_type }}
       run: |
         pixi run -e ${{ matrix.environment }} build
+        pixi shell -e ${{ matrix.environment }}
+        cd build && ./bin/main
+        # Tests
+        pixi run -e ${{ matrix.environment }} test
 
   check:
     name: check-macos-linux-pixi

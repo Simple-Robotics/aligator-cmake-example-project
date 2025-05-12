@@ -6,7 +6,7 @@ platforms = ["osx-64", "osx-arm64", "linux-64"]
 version = "0.1.0"
 
 [activation]
-scripts = ["development/pixi/activation.sh"]
+scripts = ["scripts/pixi/activation.sh"]
 
 [tasks]
 configure = { cmd = [
